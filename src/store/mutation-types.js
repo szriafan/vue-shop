@@ -18,15 +18,15 @@ export const UPDATE_PRODUCT_SUCCESS = 'UPDATE_PRODUCT_SUCCESS'
 
 export const REMOVE_PRODUCT_SUCCESS = 'REMOVE_PRODUCT_SUCCESS'
 
-export const ADD_ITEMS_TO_CART = 'addItemsToCart'
+export const ADD_CART_ITEMS = 'addCartItems'
 
-export const ADD_ITEM_TO_CART = 'addItemToCart'
+export const ADD_CART_ITEM = 'addCartItem'
 
-export const REMOVE_FROM_CART = 'removeFromCart'
+export const REMOVE_CART_ITEM = 'removeCartItem'
 
-export const UPDATE_CART = 'updateCart'
+export const UPDATE_CART_ITEM = 'updateCartItem'
 
-export const PRE_UPDATE_CART = 'preUpdateCart'
+export const WILL_UPDATE_CART_ITEM = 'willUpdateCartItem'
 
 export const PRELOAD = 'PRELOAD'
 

@@ -25,11 +25,17 @@ export const manufacturerGetters = {
 }
 
 export const cartGetters = {
-  cartItemsCount:  (state, getter) => {
+  cartItemsCount: (state, getter) => {
     let total = 0;
     state.cart.forEach(p => {
-      total += p.quantity;
+      total += parseInt(p.quantity);
     });
     return total;
-  }
+  },
+
+  cartPriceSum: state =>
+    state.cart.items.reduce((total, item) =>
+      total + item.price * parseInt(item.quantity),
+      0
+    )
 }

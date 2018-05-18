@@ -59,7 +59,7 @@ export default {
           case types.REMOVE_MANUFACTURER_SUCCESS:
             this.$toast.warn('删除品牌成功！', '消息')
             break;
-          case types.ADD_ITEMS_TO_CART:
+          case types.ADD_CART_ITEMS:
             if (this.$route.params.id) {
               this.$router.push({name: 'Cart'})
             }

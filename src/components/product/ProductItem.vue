@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <div class="product">
-      <router-link :to="{name: 'Details', params: { id: product._id }}" class="product-link">
+      <router-link :to="{name: 'Detail', params: { id: product._id }}" class="product-link">
         <div class="product-image">
           <img
             class="img-responsive" :src="product.image" alt="">
@@ -17,7 +17,7 @@
         </div>
       </router-link>
       <div class="product-action">
-        <button class="button" @click="addItemToCart(product)">加入购物车</button>
+        <button class="button" @click="addCartItem(product)">加入购物车</button>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
   name: 'ProductItem',
   components: {AddToCartButton},
   props: ['product'],
-  methods: mapMutations(['addItemToCart'])
+  methods: mapMutations(['addCartItem'])
 }
 </script>
 

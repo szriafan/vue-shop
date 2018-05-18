@@ -27,11 +27,11 @@ export default {
   watch: {
     count: function(count) {
       if (this.preparing) {
-        this.$store.commit('preUpdateCart', count)
+        this.$store.commit('willUpdateCartItem', count)
       } else {
-        this.$store.commit('updateCart', {
-            _id: this.product._id,
-            quantity: count
+        this.$store.commit('updateCartItem', {
+            id: this.product._id,
+            count: count
           }
         )
       }

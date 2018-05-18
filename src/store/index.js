@@ -16,7 +16,7 @@ export default new Vuex.Store({
     products: [],
     manufacturer: {},
     manufacturers: [],
-    quantity: 1
+    count: 1
   },
 
   getters: {...productGetters, ...manufacturerGetters, ...cartGetters},

@@ -13,7 +13,7 @@
 # 安装依赖
 npm install
 
-# 服务器在localhost:8080热替换
+# 在localhost:8080上运行热替换服务
 npm start
 
 # 构建精简的线上版本
@@ -23,4 +23,4 @@ npm run build
 npm run build --report
 ```
 
-想进一步了解构建工作原理, 请查看[指南](http://vuejs-templates.github.io/webpack/)和[vue-loader文档](http://vuejs.github.io/vue-loader).
+想进一步了解构建工作原理, 请查看[指南](http://vuejs-templates.github.io/webpack/)和[vue-loader文档](http://vuejs.github.io/vue-loader)。

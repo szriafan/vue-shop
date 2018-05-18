@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     ...mapState(['cart']),
-    ...mapGetters(['cartItemsCount']),
+    ...mapGetters(['cartItemsCount', 'cartPriceSum']),
     title() {
       return this.cartItemsCount > 0 ? '您的购物车' : '购物车是空的'
     },

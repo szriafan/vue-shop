@@ -56,19 +56,19 @@ export const manufacturerMutations = {
  * @param many
  */
 function addToCart(state, item, many = false) {
-  const record = state.cart.find(p => {
+  const product = state.cart.find(p => {
     return p._id === item._id
   })
-  if (!record) {
+  if (!product) {
     state.cart.push({
       ...item,
-      quantity: item.quantity
+      quantity: state.count
     })
   } else {
     if (many) {
-      record.quantity += state.quantity
+      product.quantity += state.count
     } else {
-      record.quantity += item.quantity
+      product.quantity += 1
     }
   }
   localStorage.setItem('CART', JSON.stringify(state.cart));
@@ -80,7 +80,7 @@ export const cartMutations = {
    * @param state
    * @param item
    */
-  addItemsToCart(state, item) {
+  addCartItems(state, item) {
     addToCart(state, item, true)
   },
   /**
@@ -88,12 +88,12 @@ export const cartMutations = {
    * @param state
    * @param item
    */
-  addItemToCart(state, item) {
+  addCartItem(state, item) {
     addToCart(state, item)
   },
   // Called when removing one item from cart
-  removeFromCart(state, item) {
-    const index = state.cart.findIndex(p => p._id === item._id)
+  removeCartItem(state, item) {
+    const index = state.cart.findIndex(p => p._id === item.id)
     state.cart.splice(index, 1);
     localStorage.setItem('CART', JSON.stringify(state.cart));
   },
@@ -102,20 +102,20 @@ export const cartMutations = {
    * @param state
    * @param item
    */
-  updateCart(state, item) {
-    let record = state.cart.find(p => p._id === item._id)
-    if (record) {
-      record.quantity = item.quantity
+  updateCartItem(state, item) {
+    let product = state.cart.find(p => p._id === item.id)
+    if (product) {
+      product.quantity = item.count
     }
     localStorage.setItem('CART', JSON.stringify(state.cart));
   },
   /**
    * Changing count to prepare to update cart
    * @param state
-   * @param quantity
+   * @param count
    */
-  preUpdateCart(state, quantity) {
-    state.quantity = quantity
+  willUpdateCartItem(state, count) {
+    state.count = count
   }
 }
 

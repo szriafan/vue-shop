@@ -11,9 +11,9 @@ export default {
   components: {ProductDetail},
   created () {
     // reset quantity state
-    this.$store.commit('preUpdateCart', 1)
+    this.$store.commit('willUpdateCartItem', 1)
     if (!this.model.name) {
-      this.$store.dispatch('getProductById', this.$route.params['id'])
+      this.productById(this.$route.params['id'])
     }
   },
   state: ['cart'],

@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 import Home from '../pages/Home';
 import Cart from '../pages/Cart';
-import Details from '../pages/Detail';
+import Detail from '../pages/Detail';
 import Index from '../pages/admin/Index';
 import NewProduct from '../pages/admin/product/New';
 import Products from '../pages/admin/product/Products';
@@ -66,8 +66,8 @@ export default new Router({
     },
     {
       path: '/products/:id',
-      name: 'Details',
-      component: Details
+      name: 'Detail',
+      component: Detail
     },
     {
       path: '/cart',

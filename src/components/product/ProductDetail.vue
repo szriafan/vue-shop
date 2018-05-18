@@ -15,7 +15,7 @@
       <div class="product-details-price-cart">
         <div>{{product.price | currency }}</div>
         <cart-control :product="product" :preparing="true"></cart-control>
-        <button class="button" @click="addItemsToCart(product)">加入购物车</button>
+        <button class="button" @click="addCartItems(product)">加入购物车</button>
       </div>
     </div>
   </div>
@@ -30,6 +30,6 @@ export default {
   name: 'ProductDetail',
   components: {CartControl},
   props: ['product'],
-  methods: mapMutations(['addItemsToCart'])
+  methods: mapMutations(['addCartItems'])
 }
 </script>
