@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 
 export default {
   name: 'Manufacturers',
@@ -40,14 +40,15 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('getAllManufacturers')
+    this.getAllManufacturers()
   },
   methods: {
+    ...mapActions(['getAllManufacturers', 'removeManufacturer']),
     deleteManufacturer(id) {
       this.$confirm('确定要删除该品牌？')
         .then(confirmed => {
           if (confirmed) {
-            this.$store.dispatch('removeManufacturer', id)
+            this.removeManufacturer(id)
           }
         })
     }

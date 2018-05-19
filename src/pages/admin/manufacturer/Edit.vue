@@ -7,30 +7,27 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 import ManufacturerForm from '../../../components/manufacturer/ManufacturerForm'
 
 export default {
   name: 'Edit',
   components: {ManufacturerForm},
+
   created() {
     if (!this.model.name) {
-      this.$store.dispatch('getManufacturerById', this.$route.params['id'])
+      this.getManufacturerById(this.$route.params['id'])
     }
   },
 
   computed: {
-    ...mapGetters(['manufacturersById']),
+    ...mapGetters(['manufacturerById']),
     model() {
       return {
-        ...this.manufacturersById(this.$route.params['id'])
+        ...this.manufacturerById(this.$route.params['id'])
       }
     }
   },
-  methods: {
-    updateManufacturer(model) {
-      this.$store.dispatch('updateManufacturer', model)
-    }
-  }
+  methods: mapActions(['updateManufacturer', 'getManufacturerById'])
 }
 </script>

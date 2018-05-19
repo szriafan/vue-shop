@@ -17,8 +17,8 @@
         </ul>
       </div>
     </nav>
-    <router-view class="main-view" v-show="this.code === 1"></router-view>
-    <loading v-show="this.code === -1" />
+    <router-view class="main-view" v-show="code === 1"></router-view>
+    <loading v-show="code === -1" />
   </div>
 </template>
 

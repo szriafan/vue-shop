@@ -10,7 +10,7 @@ export default new Vuex.Store({
   strict: true,
   state: {
     cart: JSON.parse(localStorage.getItem('CART')) || [],
-    code: -100,
+    code: -1,
     message: '',
     product: {},
     products: [],

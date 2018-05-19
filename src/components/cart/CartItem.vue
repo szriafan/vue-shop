@@ -9,9 +9,10 @@
       <div class="product-details-description">
         <h4>{{product.name}}</h4>
       </div>
+      <hr/>
       <div class="product-details-price-cart">
         <div>{{product.price | currency }}</div>
-        <cart-control :product="product"></cart-control>
+        <cart-control :product="product" :added="added"></cart-control>
         <div>{{product.price * product.quantity | currency }}</div>
         <span class="iconfont icon-delete" title="移除" @click="removeCartItem(product)"></span>
       </div>
@@ -20,13 +21,19 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 import CartControl from '../cart/CartControl'
 
 export default {
   name: 'CartItem',
   components: {CartControl},
   props: ['product'],
+  computed:{
+    ...mapGetters(['addedQuantity']),
+    added() {
+      return this.addedQuantity(this.product._id)
+    }
+  },
   methods: mapMutations(['removeCartItem'])
 }
 </script>

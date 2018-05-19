@@ -16,18 +16,17 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 import ProductList from '../components/product/ProductList'
 
 export default {
   name: 'Home',
   components: {ProductList},
   created() {
-    this.$store.dispatch('getAllProducts')
+    this.getAllProducts()
   },
-  computed: {
-    ...mapState(['products'])
-  }
+  computed: mapState(['products']),
+  methods: mapActions(['getAllProducts'])
 };
 </script>
 

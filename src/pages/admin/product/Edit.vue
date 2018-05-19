@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapActions} from 'vuex'
 import ProductForm from '../../../components/product/ProductForm'
 
 export default {
@@ -16,10 +16,10 @@ export default {
   components: {ProductForm},
   created() {
     if (!this.model.name) {
-      this.$store.dispatch('getProductById', this.$route.params['id'])
+      this.getProductById(this.$route.params['id'])
     }
     if (this.manufacturers.length === 0) {
-      this.$store.dispatch('getAllManufacturers')
+      this.getAllManufacturers()
     }
   },
 
@@ -32,10 +32,6 @@ export default {
       }
     }
   },
-  methods: {
-    updateProduct(model) {
-      this.$store.dispatch('updateProduct', model)
-    }
-  }
+  methods: mapActions(['getProductById', 'updateProduct', 'getAllManufacturers'])
 }
 </script>

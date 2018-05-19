@@ -16,7 +16,7 @@
 
 export default {
   name: 'CartControl',
-  props: ['product', 'preparing'],
+  props: ['product', 'preparing', 'added'],
 
   data() {
     return {
@@ -40,7 +40,7 @@ export default {
 
   methods: {
     increment() {
-      if (this.count < this.product.inventory) {
+      if (this.count + this.added < this.product.inventory) {
         this.count++
       }
     },

@@ -21,17 +21,13 @@ export default {
       }
     }
   },
-  beforeCreate () {
-    this.$store.dispatch('getAllManufacturers');
-    this.$store.subscribe(mutation => {
-      if (mutation.payload) {
-        if (mutation.type == types.GET_ALL_MANUFACTURERS_SUCCESS) {
-          this.model.manufacturer = this.manufacturers[0]
-        }
-      }
-    })
+  created () {
+    this.getAllManufacturers();
+  },
+  mounted(){
+    this.model.manufacturer = this.manufacturers[0]
   },
   computed: mapState(['manufacturers']),
-  methods: mapActions(['addProduct'])
+  methods: mapActions(['getAllManufacturers', 'addProduct'])
 }
 </script>

@@ -3,7 +3,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <template v-if="allProducts.length > 0">
+          <template v-if="products.length > 0">
             <th>商品名</th>
             <th>价格</th>
             <th>库存</th>
@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in allProducts">
+        <tr v-for="product in products">
           <td class="name">{{product.name}}</td>
           <td class="price">{{product.price}}</td>
           <td class="inventory">{{product.inventory}}</td>
@@ -38,20 +38,22 @@
 </template>
 
 <script>
-import { mapGetters} from 'vuex'
+import { mapState, mapActions} from 'vuex'
 
 export default {
   name: 'Products',
-  computed: mapGetters(['allProducts']),
+  computed: mapState(['products']),
+
   created() {
-    this.$store.dispatch('getAllProducts')
+    this.getAllProducts()
   },
 
   methods: {
+    ...mapActions(['getAllProducts', 'removeProduct']),
     deleteProduct(id) {
       this.$confirm('确定要删除该商品？').then(confirmed => {
         if (confirmed) {
-          this.$store.dispatch('removeProduct', id)
+          this.removeProduct(id)
         }
       })
     }

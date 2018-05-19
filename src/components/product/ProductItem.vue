@@ -17,20 +17,25 @@
         </div>
       </router-link>
       <div class="product-action">
-        <button class="button" @click="addCartItem(product)">加入购物车</button>
+        <button class="button" :disabled="added >= product.inventory"
+          @click="addCartItem(product)">加入购物车</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
-import AddToCartButton from "./AddToCartButton";
+import { mapGetters, mapMutations} from 'vuex'
 
 export default {
   name: 'ProductItem',
-  components: {AddToCartButton},
   props: ['product'],
+  computed:{
+    ...mapGetters(['addedQuantity']),
+    added() {
+      return this.addedQuantity(this.product._id)
+    }
+  },
   methods: mapMutations(['addCartItem'])
 }
 </script>
@@ -57,8 +62,6 @@ export default {
         transform: none;
       }
     }
-
-
 
     .product-image {
       width: 100%;
