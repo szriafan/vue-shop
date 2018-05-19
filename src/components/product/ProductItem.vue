@@ -29,7 +29,12 @@ import { mapGetters, mapMutations} from 'vuex'
 
 export default {
   name: 'ProductItem',
-  props: ['product'],
+  props: {
+    product: {
+      type: Object,
+      default: function(){}
+    }
+  },
   computed:{
     ...mapGetters(['addedQuantity']),
     added() {

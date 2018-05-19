@@ -12,12 +12,17 @@
 
 <script>
 import { mapState } from 'vuex'
-import ProductItem from "./ProductItem";
+import ProductItem from './ProductItem'
 
 export default {
   name: 'ProductList',
   components: {ProductItem},
-  props: ['products']
+  props: {
+    products: {
+      type: Array,
+      default: function(){}
+    }
+  }
 }
 </script>
 

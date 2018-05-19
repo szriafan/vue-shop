@@ -97,7 +97,20 @@
 
 export default {
   name: 'ProductForm',
-  props: ['model', 'manufacturers', 'isEditing'],
+  props: {
+    model: {
+      type: Object,
+      default: function(){}
+    },
+    manufacturers: {
+      type: Array,
+      default: function(){}
+    },
+    isEditing: {
+      type: Boolean,
+      default: false
+    },
+  },
   methods: {
     saveProduct() {
       this.$validator.validateAll().then(isValid => {

@@ -16,7 +16,20 @@
 
 export default {
   name: 'CartControl',
-  props: ['product', 'preparing', 'added'],
+  props: {
+    product: {
+      type: Object,
+      default: function(){}
+    },
+    needConfirmed: {
+      type: Boolean,
+      default: false
+    },
+    added: {
+      type: Number,
+      default: 0
+    },
+  },
 
   data() {
     return {
@@ -26,7 +39,7 @@ export default {
 
   watch: {
     count: function(count) {
-      if (this.preparing) {
+      if (this.needConfirmed) {
         this.$store.commit('willUpdateCartItem', count)
       } else {
         this.$store.commit('updateCartItem', {
@@ -40,7 +53,11 @@ export default {
 
   methods: {
     increment() {
-      if (this.count + this.added < this.product.inventory) {
+      let max = this.count
+      if (this.needConfirmed) {
+        max = this.count + this.added;
+      }
+      if (max < this.product.inventory) {
         this.count++
       }
     },
@@ -86,5 +103,4 @@ export default {
       margin-right: 8px;
     }
   }
-
 </style>

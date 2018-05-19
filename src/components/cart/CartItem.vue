@@ -27,7 +27,12 @@ import CartControl from '../cart/CartControl'
 export default {
   name: 'CartItem',
   components: {CartControl},
-  props: ['product'],
+  props: {
+    product: {
+      type: Object,
+      default: function(){}
+    }
+  },
   computed:{
     ...mapGetters(['addedQuantity']),
     added() {

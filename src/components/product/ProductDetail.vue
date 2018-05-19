@@ -9,15 +9,15 @@
         <small>{{product.manufacturer && product.manufacturer.name}}</small>
         <h4>{{product.name}}</h4>
         <h5>{{inventoryInfo}}</h5>
-        <hr/>
+        <hr />
         <div>
           {{product.description}}
         </div>
       </div>
-      <hr/>
+      <hr />
       <div class="product-details-price-cart">
         <div>{{product.price | currency }}</div>
-        <cart-control :product="product" :added="added" :preparing="true"></cart-control>
+        <cart-control :product="product" :added="added" :need-confirmed="true"></cart-control>
         <button class="button" :disabled="added + count > product.inventory"
           @click="addCartItems(product)">加入购物车
         </button>
@@ -28,13 +28,17 @@
 
 <script>
 import {mapGetters, mapMutations, mapState} from 'vuex'
-
-import CartControl from "../cart/CartControl";
+import CartControl from '../cart/CartControl'
 
 export default {
   name: 'ProductDetail',
   components: {CartControl},
-  props: ['product'],
+  props: {
+    product: {
+      type: Object,
+      default: function(){}
+    }
+  },
   computed: {
     ...mapGetters(['addedQuantity']),
     ...mapState(['count']),
@@ -43,7 +47,7 @@ export default {
     },
     inventoryInfo() {
       const inventory = this.product.inventory
-      if(inventory > 0) {
+      if (inventory > 0) {
         return inventory + '件可售'
       }
       return '缺货'

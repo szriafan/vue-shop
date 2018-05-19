@@ -29,7 +29,16 @@
 
 export default {
   name: 'ManufacturerForm',
-  props: ['model', 'isEditing'],
+  props: {
+    model: {
+      type: Object,
+      default: function(){}
+    },
+    isEditing: {
+      type: Boolean,
+      default: false
+    }
+  },
   methods: {
     saveManufacturer () {
       this.$validator.validateAll().then(isValid => {
