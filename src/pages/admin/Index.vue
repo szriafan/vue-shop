@@ -59,11 +59,14 @@ export default {
 
   @media screen and (max-width: 767px) {
     .container {
+      padding-left: 0;
+      padding-right: 0;
       &.admin {
         padding-top: 15px;
         padding-bottom: 15px;
       }
     }
+
     .admin-menu {
       margin-bottom: 15px;
     }

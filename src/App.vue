@@ -121,8 +121,10 @@ export default {
       color: @red;
     }
 
-    .iconfont {
-      margin-right: 4px;
+    @media screen and (min-width: 768px) {
+      .iconfont {
+        margin-right: 4px;
+      }
     }
   }
 
