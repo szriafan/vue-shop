@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container admin">
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
       <ul class="admin-menu">
         <li>
@@ -26,6 +26,13 @@ export default {
 <style scoped lang="less">
   @import '../../assets/less/variables';
 
+  .container {
+    &.admin {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+
   .admin-menu a {
     display: block;
     border: 1px solid @red-dark;
@@ -50,8 +57,15 @@ export default {
     }
   }
 
-  .container {
-    border-bottom: 2px solid @white-smoke;
-    padding: 30px 0;
+  @media screen and (max-width: 767px) {
+    .container {
+      &.admin {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    }
+    .admin-menu {
+      margin-bottom: 15px;
+    }
   }
 </style>

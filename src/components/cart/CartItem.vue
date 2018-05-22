@@ -1,15 +1,14 @@
 <template>
   <div class="container product-details">
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 product-details-image">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
       <router-link :to="{name: 'Detail', params: { id: product._id }}">
         <img class="img-responsive" :src="product.image" alt="">
       </router-link>
     </div>
-    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 product-details__info">
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
       <div class="product-details-description">
         <h4>{{product.name}}</h4>
       </div>
-      <hr/>
       <div class="product-details-price-cart">
         <div>{{product.price | currency }}</div>
         <cart-control :product="product" :added="added"></cart-control>

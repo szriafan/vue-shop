@@ -35,18 +35,31 @@ a:hover {
     opacity: 0.6;
     cursor: default;
   }
+  &.icon {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  &.grey {
+    border: 1px solid @grey-dark;
+    background: @grey-black;
+    &:hover {
+      background: @grey;
+    }
+  }
+}
+
+.button + .button {
+  margin-left: 8px;
 }
 
 @media screen and (max-width: 767px) {
   .button {
     padding: 6px 10px;
   }
-}
-
-
-.new-button {
-  display: flex;
-  flex-direction: row-reverse;
+  &.icon {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
 }
 
 .form-control.error {
@@ -56,6 +69,7 @@ a:hover {
 
 .product-details {
   padding: 30px 0;
+  border-bottom: solid 1px @grey-light;
 }
 
 .product-details-description {

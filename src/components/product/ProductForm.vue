@@ -81,12 +81,15 @@
           :class="{'error': errors.has('description') }"></textarea>
         <span class="small text-danger" v-show="errors.has('description')">描述不能为空</span>
       </div>
-      <div class="form-group new-button">
-        <button class="button" v-if="isEditing">
-          <i class="iconfont icon-edit"></i> 修改产品
+      <div class="form-group pull-right">
+        <button type="button" class="button icon grey" @click="goBack">
+          <i class="iconfont icon-back"></i> 取消
         </button>
-        <button class="button" v-else>
-          <i class="iconfont icon-add"></i> 添加产品
+        <button type="submit" class="button icon" v-if="isEditing">
+          <i class="iconfont icon-edit"></i> 修改
+        </button>
+        <button type="submit" class="button icon" v-else>
+          <i class="iconfont icon-add"></i> 添加
         </button>
       </div>
     </div>
@@ -120,6 +123,9 @@ export default {
           this.$toast.error('请确保表单填写正确');
         }
       })
+    },
+    goBack() {
+      history.back()
     }
   }
 }
