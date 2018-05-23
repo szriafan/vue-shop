@@ -13,25 +13,18 @@
           :class="{'error': errors.has('name') }" />
         <span class="small text-danger" v-show="errors.has('name')">品牌名不能为空</span>
       </div>
-      <div class="form-group pull-right">
-        <button type="button" class="button icon grey" @click="goBack">
-          <i class="iconfont icon-back"></i> 取消
-        </button>
-        <button type="submit" class="button icon" v-if="isEditing">
-          <i class="iconfont icon-edit"></i> 修改
-        </button>
-        <button type="submit" class="button icon" v-else>
-          <i class="iconfont icon-add"></i> 添加
-        </button>
-      </div>
+      <button-group :is-editing="isEditing"></button-group>
     </div>
   </form>
 </template>
 
 <script>
 
+import ButtonGroup from '../common/ButtonGroup'
+
 export default {
   name: 'ManufacturerForm',
+  components: {ButtonGroup},
   props: {
     model: {
       type: Object,
@@ -51,9 +44,6 @@ export default {
           this.$toast.error('请确保表单填写正确');
         }
       })
-    },
-    goBack() {
-      history.back()
     }
   }
 }

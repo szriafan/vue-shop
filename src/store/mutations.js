@@ -93,7 +93,7 @@ export const cartMutations = {
   },
   // Called when removing one item from cart
   removeCartItem(state, item) {
-    const index = state.cart.findIndex(p => p._id === item.id)
+    const index = state.cart.findIndex(p => p._id === item._id)
     state.cart.splice(index, 1);
     localStorage.setItem('CART', JSON.stringify(state.cart));
   },

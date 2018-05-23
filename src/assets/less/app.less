@@ -18,11 +18,11 @@ a:hover {
 }
 
 .button {
+  min-width: 80px;
   background: @red;
   border: 1px solid @red-dark;
   border-radius: 3px;
-  padding: 10px 15px;
-  font-weight: bold;
+  padding: 8px 12px;
   text-transform: uppercase;
   color: #fff;
   transition: all 200ms ease-out;
@@ -35,15 +35,11 @@ a:hover {
     opacity: 0.6;
     cursor: default;
   }
-  &.icon {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
   &.grey {
-    border: 1px solid @grey-dark;
-    background: @grey-black;
+    border: 1px solid #333;
+    background: #333;
     &:hover {
-      background: @grey;
+      background: #666;
     }
   }
 }
@@ -54,11 +50,7 @@ a:hover {
 
 @media screen and (max-width: 767px) {
   .button {
-    padding: 6px 10px;
-  }
-  &.icon {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    min-width: 60px;
   }
 }
 
@@ -92,4 +84,8 @@ a:hover {
     flex-grow: 2;
     font-size: 18px;
   }
+}
+
+.icon-add-circle, .icon-remove-circle, .icon-delete {
+  cursor: pointer;
 }

@@ -24,7 +24,7 @@ export default new Router({
     {
       path: '/products',
       name: 'Products',
-      component: Home,
+      component: Home
     },
     {
       path: '/admin',
@@ -40,27 +40,27 @@ export default new Router({
         {
           path: 'products/new',
           name: 'NewProduct',
-          component: NewProduct,
+          component: NewProduct
         },
         {
           path: 'products/edit/:id',
           name: 'EditProduct',
-          component: EditProduct,
+          component: EditProduct
         },
         {
           path: 'manufacturers',
           name: 'Manufacturers',
-          component: Manufacturers,
+          component: Manufacturers
         },
         {
           path: 'manufacturers/new',
           name: 'NewManufacturer',
-          component: NewManufacturer,
+          component: NewManufacturer
         },
         {
           path: 'manufacturers/edit/:id',
           name: 'EditManufacturer',
-          component: EditManufacturer,
+          component: EditManufacturer
         }
       ]
     },
@@ -72,7 +72,7 @@ export default new Router({
     {
       path: '/cart',
       name: 'Cart',
-      component: Cart,
+      component: Cart
     }
   ]
 });

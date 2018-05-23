@@ -1,23 +1,23 @@
 <template>
   <manufacturer-form
     @save-manufacturer="addManufacturer"
-    :model="model">
+    :model="{}">
   </manufacturer-form>
 </template>
 
 <script>
 import {mapActions} from 'vuex'
 import ManufacturerForm from '../../../components/manufacturer/ManufacturerForm'
+import * as types from '../../../store/mutation-types'
 
 export default {
-  name: 'New',
+  name: 'NewManufacturer',
   components: {ManufacturerForm},
-  data () {
-    return {
-      model: {}
-    }
+  methods: mapActions(['addManufacturer']),
+  created(){
+    // no need load
+    this.$store.commit(types.LOADED)
   },
-  methods: mapActions(['addManufacturer'])
 }
 </script>
 

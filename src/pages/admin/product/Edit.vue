@@ -22,14 +22,12 @@ export default {
       this.getAllManufacturers()
     }
   },
-
+  
   computed: {
     ...mapState(['manufacturers']),
     ...mapGetters(['productById']),
     model() {
-      return {
-        ...this.productById(this.$route.params['id'])
-      }
+      return this.productById(this.$route.params['id'])
     }
   },
   methods: mapActions(['getProductById', 'updateProduct', 'getAllManufacturers'])
