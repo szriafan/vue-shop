@@ -49,7 +49,7 @@ export const cartGetters = {
    */
   cartPriceSum: state =>
     state.cart.items.reduce((total, item) =>
-      total + item.price * parseInt(item.quantity),
+      total + parseFloat(item.price) * parseInt(item.quantity),
       0
     ),
 
@@ -62,7 +62,7 @@ export const cartGetters = {
   addedQuantity: (state, getters) => id => {
     const item = state.cart.find(p => p._id === id)
     if (item) {
-      return item.quantity
+      return parseInt(item.quantity)
     } else {
       return 0
     }

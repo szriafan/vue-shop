@@ -1,8 +1,7 @@
 <template>
   <div class="form-group pull-right">
     <button type="button" class="button grey" @click="goBack">取消</button>
-    <button type="submit" class="button" v-if="isEditing">修改</button>
-    <button type="submit" class="button" v-else>添加</button>
+    <button type="submit" class="button">{{isEditing ? '修改' : '添加'}}</button>
   </div>
 </template>
 

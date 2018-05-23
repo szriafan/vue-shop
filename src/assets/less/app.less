@@ -19,7 +19,7 @@ a:hover {
 
 .button {
   min-width: 80px;
-  background: @red;
+  background-color: @red;
   border: 1px solid @red-dark;
   border-radius: 3px;
   padding: 8px 12px;
@@ -28,18 +28,18 @@ a:hover {
   transition: all 200ms ease-out;
   outline: none;
   &:hover {
-    background: @red-light;
+    background-color: @red-light;
   }
   &[disabled] {
-    background: @red;
+    background-color: @red;
     opacity: 0.6;
     cursor: default;
   }
   &.grey {
-    border: 1px solid #333;
-    background: #333;
+    border: 1px solid @grey-black;
+    background-color: @grey-black;
     &:hover {
-      background: #666;
+      background-color: @grey-dark;
     }
   }
 }
