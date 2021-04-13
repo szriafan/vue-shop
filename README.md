@@ -2,9 +2,9 @@
 
 > A project for learning Vue + Vuex + vue-router. If you like the project, please star me, thanks!
 
-## Live demo: [https://szriafan.github.io/vue-shop/dist](https://szriafan.github.io/vue-shop/dist)
+## Live demo: [http://riafan.com/demo/vue-shop](http://riafan.com/demo/vue-shop)
 
-## Clone and run Service: [https://github.com/szriafan/vue-shop-api.git](https://github.com/szriafan/vue-shop-api.git) 
+## Clone and run Service: [https://github.com/szriafan/vue-shop-api.git](https://github.com/szriafan/vue-shop-api.git)
 
 ## Build Setup
 
