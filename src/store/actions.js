@@ -51,13 +51,6 @@ export const manufacturerActions = {
     })
   },
 
-  getManufacturerById({commit}, id) {
-    commit(types.PRELOAD)
-    axios.get(`manufacturers/${id}`).then(response => {
-      commit(types.LOADED)
-      commit(types.GET_MANUFACTURER_BY_ID_SUCCESS, response.data)
-    })
-  },
   addManufacturer({commit}, payload) {
     commit(types.PRELOAD)
     axios.post('manufacturers', payload).then(response => {

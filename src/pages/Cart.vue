@@ -27,10 +27,11 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
 import * as types from '../store/mutation-types'
+import axios from "../store/axios";
+import CartItem from "../components/CartItem";
 
-import CartItem from "../components/cart/CartItem";
 
 export default {
   name: 'Cart',
@@ -40,7 +41,7 @@ export default {
     this.$store.commit(types.LOADED)
   },
   computed: {
-    ...mapState(['cart']),
+    ...mapState(['cart', 'ordered']),
     ...mapGetters(['cartItemsCount', 'cartPriceSum']),
     title() {
       return this.cartItemsCount > 0 ? '您的购物车' : '购物车是空的'
@@ -49,14 +50,23 @@ export default {
     priceSum() {
       let total = 0;
       this.cart.forEach(cart => {
-        total += cart.price * cart.quantity;
+        total += cart.price * cart.quantity
       });
       return total;
     },
   },
   methods: {
+    ...mapActions(['updateProduct']),
+    ...mapMutations(['removeCartItem']),
     goPay() {
-      this.$alert('功能有待添加');
+      this.cart.forEach(async item => {
+        await axios.put(`products/${item._id}`, {
+          ...item,
+          inventory: item.inventory - item.quantity
+        })
+        this.removeCartItem(item)
+      })
+      this.$alert('功能有待添加')
     }
   },
 }

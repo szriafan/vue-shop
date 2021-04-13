@@ -7,7 +7,7 @@
           type="text"
           class="form-control"
           placeholder="品牌名"
-          v-model="model.name"
+          v-model="form.name"
           v-validate="'required'"
           name="name"
           :class="{'error': errors.has('name') }" />
@@ -19,27 +19,43 @@
 </template>
 
 <script>
-
-import ButtonGroup from '../common/ButtonGroup'
+import {mapGetters, mapActions} from 'vuex'
+import ButtonGroup from '../../../components/ButtonGroup'
 
 export default {
   name: 'ManufacturerForm',
   components: {ButtonGroup},
   props: {
-    model: {
+    manufacturer: {
       type: Object,
-      default: function(){}
+      default: () => {}
     },
-    isEditing: {
-      type: Boolean,
-      default: false
+  },
+  data() {
+    return {
+      form: {}
+    }
+  },
+  computed: {
+    isEditing() {
+      return this.manufacturer !== undefined
+    }
+  },
+  created() {
+    if (this.isEditing) {
+      this.form = { ...this.manufacturer }
+    } else {
+      this.form = {}
     }
   },
   methods: {
+    ...mapActions(['addManufacturer', 'updateManufacturer']),
     saveManufacturer () {
       this.$validator.validateAll().then(isValid => {
         if (isValid) {
-          this.$emit('save-manufacturer', this.model);
+          const form = this.form
+          this.$emit('save-manufacturer',
+            this.isEditing ? this.updateManufacturer(form) : this.addManufacturer(form));
         } else {
           this.$toast.error('请确保表单填写正确');
         }

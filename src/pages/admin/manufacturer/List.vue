@@ -13,7 +13,7 @@
         <tr v-for="manufacturer in manufacturers">
           <td>{{manufacturer.name}}</td>
           <td>
-            <router-link title="编辑" :to="{name: 'EditManufacturer', params: { id: manufacturer._id }}">
+            <router-link title="编辑" :to="{name: 'EditManufacturer', params: { manufacturer }}">
               <i class="iconfont icon-edit"></i>
             </router-link>
           </td>

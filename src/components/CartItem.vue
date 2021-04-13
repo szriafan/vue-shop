@@ -21,7 +21,7 @@
 
 <script>
 import {mapGetters, mapMutations} from 'vuex'
-import CartControl from '../cart/CartControl'
+import CartControl from './CartControl'
 
 export default {
   name: 'CartItem',

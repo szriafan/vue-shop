@@ -35,9 +35,6 @@ export const manufacturerMutations = {
   [types.GET_ALL_MANUFACTURERS_SUCCESS](state, payload=[]) {
     state.manufacturers = payload
   },
-  [types.GET_MANUFACTURER_BY_ID_SUCCESS](state, payload={}) {
-    state.manufacturer = payload
-  },
   [types.ADD_MANUFACTURER_SUCCESS](state, payload) {
     state.manufacturers.push(payload)
   },
@@ -60,7 +57,7 @@ function addToCart(state, item, many = false) {
     return p._id === item._id
   })
   if (!product) {
-    state.cart.push({
+    state.cart.unshift({
       ...item,
       quantity: state.count
     })

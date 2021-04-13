@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import {manufacturerGetters, productGetters, cartGetters} from "./getters";
-import {common, productMutations, cartMutations, manufacturerMutations, statusMutations} from "./mutations";
+import {productMutations, cartMutations, manufacturerMutations, statusMutations} from "./mutations";
 import {productActions, manufacturerActions} from "./actions";
 
 Vue.use(Vuex);

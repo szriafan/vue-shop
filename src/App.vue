@@ -4,7 +4,7 @@
       <div class="container">
         <ul class="nav-left">
           <li>
-            <router-link :to="{name: 'Home'}"><i class="iconfont icon-home"></i> 首页</router-link>
+            <router-link :to="{name: 'Home'}" exact><i class="iconfont icon-home"></i> 首页</router-link>
           </li>
           <li>
             <router-link :to="{name: 'Admin'}"><i class="iconfont icon-admin"></i> 管理</router-link>
@@ -12,19 +12,19 @@
         </ul>
         <ul class="nav-right">
           <li>
-            <router-link :to="{name: 'Cart'}"><i class="iconfont icon-cart"></i> 购物车 ({{cartItemsCount}})</router-link>
+            <router-link :to="{name: 'Cart'}" exact><i class="iconfont icon-cart"></i> 购物车 ({{cartItemsCount}})</router-link>
           </li>
         </ul>
       </div>
     </nav>
-    <router-view class="main-view" v-show="code === 1"></router-view>
+    <router-view class="main-view"></router-view>
     <loading v-show="code === -1" />
   </div>
 </template>
 
 <script>
 import {mapGetters, mapState} from 'vuex'
-import Loading from "./components/common/Loading"
+import Loading from "./components/Loading"
 
 import * as types from './store/mutation-types'
 

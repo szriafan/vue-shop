@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="less">
-  @import '../../assets/less/variables';
+  @import '../assets/less/variables';
 
   .product {
     background: #fff;

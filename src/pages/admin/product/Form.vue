@@ -7,7 +7,7 @@
           type="text"
           class="form-control"
           placeholder="产品名"
-          v-model="model.name"
+          v-model="form.name"
           v-validate="'required'"
           name="name"
           :class="{'error': errors.has('name') }" />
@@ -19,7 +19,7 @@
           type="number"
           class="form-control"
           placeholder="价格"
-          v-model="model.price"
+          v-model="form.price"
           v-validate="'required'"
           name="price"
           :class="{'error': errors.has('price') }" />
@@ -32,13 +32,12 @@
           type="number"
           class="form-control"
           placeholder="库存"
-          v-model="model.inventory"
+          v-model="form.inventory"
           v-validate="'required'"
           name="inventory"
           :class="{'error': errors.has('inventory') }" />
         <span class="small text-danger" v-show="errors.has('inventory')">库存不能为空</span>
       </div>
-
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -47,7 +46,7 @@
         <select
           class="form-control"
           placeholder="品牌"
-          v-model="model.manufacturer"
+          v-model="form.manufacturer"
           v-validate="'required'"
           name="manufacturer"
           :class="{'error': errors.has('manufacturer') }">
@@ -62,7 +61,7 @@
           type="text"
           class="form-control"
           placeholder="图片"
-          v-model="model.image"
+          v-model="form.image"
           v-validate="'required|url'"
           name="image"
           :class="{'error': errors.has('image')}" />
@@ -75,7 +74,7 @@
           class="form-control"
           placeholder="描述"
           rows="5"
-          v-model="model.description"
+          v-model="form.description"
           v-validate="'required'"
           name="description"
           :class="{'error': errors.has('description') }"></textarea>
@@ -87,30 +86,44 @@
 </template>
 
 <script>
-import ButtonGroup from '../common/ButtonGroup'
+import ButtonGroup from '../../../components/ButtonGroup'
+import {mapState, mapActions} from "vuex";
 
 export default {
   name: 'ProductForm',
   components: {ButtonGroup},
   props: {
-    model: {
+    product: {
       type: Object,
-      default: function(){}
-    },
-    manufacturers: {
-      type: Array,
-      default: function(){}
-    },
-    isEditing: {
-      type: Boolean,
-      default: false
-    },
+      default: () => {}
+    }
+  },
+  data() {
+    return {
+      form: {}
+    }
+  },
+  computed: {
+    ...mapState(['manufacturers']),
+    isEditing() {
+      return this.product !== undefined
+    }
+  },
+  created () {
+    this.getAllManufacturers()
+    if (this.isEditing) {
+      this.form = { ...this.product }
+    } else {
+      this.form = {}
+    }
   },
   methods: {
+    ...mapActions(['addProduct', 'updateProduct', 'getAllManufacturers']),
     saveProduct() {
       this.$validator.validateAll().then(isValid => {
         if(isValid) {
-          this.$emit('save-product', this.model)
+          const form = this.form
+          this.$emit('save-product', this.isEditing ? this.updateProduct(form) : this.addProduct(form))
         } else {
           this.$toast.error('请确保表单填写正确');
         }

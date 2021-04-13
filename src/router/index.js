@@ -1,29 +1,22 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import Router from 'vue-router'
 
-import Home from '../pages/Home';
-import Cart from '../pages/Cart';
-import Detail from '../pages/Detail';
-import Index from '../pages/admin/Index';
-import NewProduct from '../pages/admin/product/New';
-import Products from '../pages/admin/product/Products';
-import EditProduct from '../pages/admin/product/Edit';
-import NewManufacturer from '../pages/admin/manufacturer/New';
-import Manufacturers from '../pages/admin/manufacturer/Manufacturers';
-import EditManufacturer from '../pages/admin/manufacturer/Edit'
+import Home from '../pages/Home'
+import Cart from '../pages/Cart'
+import Detail from '../pages/Detail'
+import Index from '../pages/admin/Index'
+import Products from '../pages/admin/product/List'
+import ProductForm from '../pages/admin/product/Form'
+import Manufacturers from '../pages/admin/manufacturer/List'
+import ManufacturerForm from '../pages/admin/manufacturer/Form'
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '*',
       name: 'Home',
-      redirect: Products
-    },
-    {
-      path: '/products',
-      name: 'Products',
       component: Home
     },
     {
@@ -40,12 +33,13 @@ export default new Router({
         {
           path: 'products/new',
           name: 'NewProduct',
-          component: NewProduct
+          component: ProductForm
         },
         {
-          path: 'products/edit/:id',
+          path: 'products/edit',
           name: 'EditProduct',
-          component: EditProduct
+          component: ProductForm,
+          props: true
         },
         {
           path: 'manufacturers',
@@ -55,12 +49,13 @@ export default new Router({
         {
           path: 'manufacturers/new',
           name: 'NewManufacturer',
-          component: NewManufacturer
+          component: ManufacturerForm,
         },
         {
-          path: 'manufacturers/edit/:id',
+          path: 'manufacturers/edit',
           name: 'EditManufacturer',
-          component: EditManufacturer
+          component: ManufacturerForm,
+          props: true
         }
       ]
     },

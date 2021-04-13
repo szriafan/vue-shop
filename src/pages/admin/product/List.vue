@@ -24,7 +24,7 @@
           <td class="inventory">{{product.inventory}}</td>
           <td class="manufacturer">{{product.manufacturer.name}}</td>
           <td>
-            <router-link title="编辑" :to="{name: 'EditProduct', params: { id: product._id }}">
+            <router-link title="编辑" :to="{name: 'EditProduct', params: { product }}">
               <i class="iconfont icon-edit"></i>
             </router-link>
           </td>
