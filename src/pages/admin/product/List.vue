@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 admin-product-list ">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -61,28 +61,36 @@ export default {
 }
 </script>
 
-<style scoped>
-  .name{
-    width: 40%;
-  }
-  .price{
-    width: 15%;
-  }
-  .inventory {
-    width: 15%;
-  }
-  .manufacturer{
-    width: 20%;
-  }
-  @media screen and (max-width: 767px) {
-    .price{
-      width: 18%;
+<style lang="less">
+  .admin-product-list {
+    .name {
+      width: 40%;
     }
+
+    .price {
+      width: 15%;
+    }
+
     .inventory {
-      width: 18%;
+      width: 15%;
     }
-  }
-  td:last-child {
-    text-align: right;
+
+    .manufacturer {
+      width: 20%;
+    }
+
+    @media screen and (max-width: 767px) {
+      .price {
+        width: 18%;
+      }
+
+      .inventory {
+        width: 18%;
+      }
+    }
+
+    td:last-child {
+      text-align: right;
+    }
   }
 </style>

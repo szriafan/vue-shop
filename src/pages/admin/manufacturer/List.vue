@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 admin-manufacturers">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -56,22 +56,26 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-  th {
-    &:first-child {
-      width: 90%
-    }
-    &:last-child {
-      text-align: center;
-    }
-    a {
-      cursor: pointer;
-    }
-  }
+<style lang="less">
+  .admin-manufacturers {
+    th {
+      &:first-child {
+        width: 90%
+      }
 
-  @media screen and (max-width: 767px) {
-    th:first-child {
-      width: 80%
+      &:last-child {
+        text-align: center;
+      }
+
+      a {
+        cursor: pointer;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      th:first-child {
+        width: 80%
+      }
     }
   }
 </style>

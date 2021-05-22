@@ -79,90 +79,67 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-  @import 'assets/less/variables';
+<style lang="less">
+  @import 'styles/variables';
+  @import 'styles/mixin';
 
-  nav {
-    font-weight: 300;
-    text-transform: uppercase;
-    background: @grey-black;
-    .container {
-      display: flex;
-    }
+  #app {
+    nav {
+      font-weight: 300;
+      text-transform: uppercase;
+      background: @grey-black;
 
-    .nav-left {
-      flex-grow: 3;
-      display: flex;
-    }
+      .container {
+        display: flex;
+      }
 
-    .nav-right {
-      flex-grow: 2;
-      display: flex;
-      flex-direction: row-reverse;
-    }
+      .nav-left {
+        flex-grow: 3;
+        display: flex;
+      }
 
-    li a {
-      display: block;
-      padding: 13px 16px;
-      color: #fff;
-      transition: color 150ms ease-out;
-    }
+      .nav-right {
+        flex-grow: 2;
+        display: flex;
+        flex-direction: row-reverse;
+      }
 
-    :hover {
-      text-decoration: none;
-      color: #a6a6a6;
-    }
+      li a {
+        display: block;
+        padding: 13px 16px;
+        color: #fff;
+        transition: color 150ms ease-out;
+      }
 
-    :focus {
-      text-decoration: none;
-    }
+      :hover {
+        text-decoration: none;
+        color: #a6a6a6;
+      }
 
-    .router-link-active, router-link-exact-active {
-      color: @red;
-    }
+      :focus {
+        text-decoration: none;
+      }
 
-    @media screen and (min-width: 768px) {
-      .iconfont {
-        margin-right: 4px;
+      .router-link-active, router-link-exact-active {
+        color: @red;
+      }
+
+      @media screen and (min-width: 768px) {
+        .iconfont {
+          margin-right: 4px;
+        }
       }
     }
-  }
 
-  .main-view {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    &::-webkit-scrollbar-track-piece {
-      background-color: rgba(0, 0, 0, 0);
-      border-left: 1px solid rgba(0, 0, 0, 0);
-    }
-
-    &::-webkit-scrollbar {
-      width: 5px;
-      height: 13px;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.5);
-      background-clip: padding-box;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      min-height: 28px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(0, 0, 0, 0.5);
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
+    .main-view {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50px;
+      bottom: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      .scrollBar;
     }
   }
 </style>

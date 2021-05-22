@@ -9,7 +9,7 @@ import VeeValidate from 'vee-validate'
 import VueToast from './plugins/vue-toast'
 import VueDialog from './plugins/vue-dialog'
 import './assets/css/iconfont.css'
-import './assets/less/app.less'
+import './styles/app.less'
 import { currency } from './utils/currency'
 
 Vue.config.productionTip = false

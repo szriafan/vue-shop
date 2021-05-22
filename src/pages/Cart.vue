@@ -1,10 +1,8 @@
 <template>
-  <div class="wrap">
-    <div class="cart-wrap">
+  <div class="cart">
+    <div class="cart-list">
       <div class="title">
-        <h4>
-          <i class="iconfont icon-superpowers"></i> {{title}}
-        </h4>
+        <h4><i class="iconfont icon-superpowers"></i> {{title}}</h4>
       </div>
       <cart-item
         v-for="product in cart"
@@ -12,7 +10,7 @@
         :key="product._id">
       </cart-item>
     </div>
-    <div class="cart-floatbar" v-if="cart.length > 0">
+    <div class="footer" v-if="cart.length > 0">
       <div class="toolbar-wrap">
         <div class="amount-sum">
           <em>{{cartItemsCount}}</em>件商品
@@ -72,50 +70,52 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-  @import '../assets/less/variables';
+<style lang="less">
+  @import '../styles/variables';
+  @import '../styles/mixin';
 
-  .wrap {
+  .cart {
     overflow-y: hidden;
-  }
-  .cart-wrap {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 64px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .cart-floatbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 64px;
-    line-height: 64px;
-    background-color: ghostwhite;
-    border-top: 2px solid @white-smoke;
-    overflow-y: hidden;
-  }
+    .cart-list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 64px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      .scrollBar;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 64px;
+      line-height: 64px;
+      background-color: ghostwhite;
+      border-top: 2px solid @white-smoke;
+      overflow-y: hidden;
+    }
 
-  .toolbar-wrap {
-    float: right;
-    padding-right: 4%;
-  }
+    .toolbar-wrap {
+      float: right;
+      padding-right: 4%;
+    }
 
-  .amount-sum, .price-sum {
-    display: inline-block;
-    padding-right: 4px;
-  }
+    .amount-sum, .price-sum {
+      display: inline-block;
+      padding-right: 4px;
+    }
 
-  em {
-    color: @red;
-    font-weight: bold;
-  }
+    em {
+      color: @red;
+      font-weight: bold;
+    }
 
-  .go-pay-button {
-    line-height: normal;
-    padding-left: 32px;
-    padding-right: 32px;
+    .go-pay-button {
+      line-height: normal;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 </style>

@@ -23,52 +23,50 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-  @import '../../assets/less/variables';
+<style lang="less">
+  @import '../../styles/variables';
 
-  .container {
-    &.admin {
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
-  }
+  .admin {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .admin-menu a {
+      display: block;
+      border: 1px solid @red-dark;
+      padding: 10px 15px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: @grey-black;
 
-  .admin-menu a {
-    display: block;
-    border: 1px solid @red-dark;
-    padding: 10px 15px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    font-weight: bold;
-    color: @grey-black;
+      :hover {
+        color: @grey-dark;
+      }
 
-    :hover {
-      color: @grey-dark;
-    }
+      &.router-link-active {
+        border-left-width: 8px;
+        text-decoration: none;
+      }
 
-    &.router-link-active {
-      border-left-width: 8px;
-      text-decoration: none;
-    }
-
-    &.router-link-exact-active {
-      border-left-width: 8px;
-      text-decoration: none;
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    .container {
-      padding-left: 0;
-      padding-right: 0;
-      &.admin {
-        padding-top: 15px;
-        padding-bottom: 15px;
+      &.router-link-exact-active {
+        border-left-width: 8px;
+        text-decoration: none;
       }
     }
 
-    .admin-menu {
-      margin-bottom: 15px;
+    @media screen and (max-width: 767px) {
+      .container {
+        padding-left: 0;
+        padding-right: 0;
+
+        &.admin {
+          padding-top: 15px;
+          padding-bottom: 15px;
+        }
+      }
+
+      .admin-menu {
+        margin-bottom: 15px;
+      }
     }
   }
 </style>

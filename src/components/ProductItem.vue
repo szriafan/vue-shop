@@ -1,31 +1,29 @@
 <template>
-  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="product">
-      <router-link :to="{name: 'Detail', params: { id: product._id }}" class="product-link">
-        <div class="product-image">
-          <img
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product-item">
+    <router-link :to="{name: 'Detail', params: { id: product._id }}" class="product-link">
+      <div class="product-image">
+        <img
             class="img-responsive" :src="product.image" alt="">
-        </div>
-        <div class="product-description">
-          <div class="product-info">
-            <small>{{product.manufacturer.name}}</small>
-            <h4>{{product.name}}</h4>
-          </div>
-          <div class="product-price-cart">
-            {{product.price | currency }}
-          </div>
-        </div>
-      </router-link>
-      <div class="product-action">
-        <button class="button" :disabled="added >= product.inventory"
-          @click="addCartItem(product)">加入购物车</button>
       </div>
+      <div class="product-description">
+        <div class="product-info">
+          <small>{{product.manufacturer.name}}</small>
+          <h4>{{product.name}}</h4>
+        </div>
+        <div class="product-price-cart">
+          {{product.price | currency }}
+        </div>
+      </div>
+    </router-link>
+    <div class="product-action">
+      <button class="button" :disabled="added >= product.inventory"
+              @click="addCartItem(product)">加入购物车</button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 
 export default {
   name: 'ProductItem',
@@ -46,9 +44,9 @@ export default {
 </script>
 
 <style lang="less">
-  @import '../assets/less/variables';
+  @import '../styles/variables';
 
-  .product {
+  .product-item {
     background: #fff;
     margin-bottom: 30px;
     position: relative;
@@ -85,55 +83,52 @@ export default {
         text-decoration: none;
       }
     }
-  }
 
-  .product-description {
-    width: 100%;
-    display: flex;
-    padding: 20px 20px 15px;
-    background: #fff;
-    small {
-      color: @grey;
+    .product-description {
+      width: 100%;
+      display: flex;
+      padding: 20px 20px 15px;
+      background: #fff;
+      small {
+        color: @grey;
+      }
+      h4 {
+        font-size: 16px;
+        margin-top: 16px;
+      }
     }
-  }
 
-  .product-info {
-    flex: 2;
-  }
+    .product-info {
+      flex: 2;
+    }
 
-  .product-description
-
-  .product-description h4 {
-    font-size: 16px;
-    margin-top: 16px;
-  }
-
-  .product-price-cart {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #51d2b7;
-
-    p {
-      flex-grow: 2;
+    .product-price-cart {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       font-size: 20px;
       font-weight: bold;
-    }
-  }
+      color: #51d2b7;
 
-  .product-action {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    transform: translateY(100%);
-    button {
-      border-radius: 0;
+      p {
+        flex-grow: 2;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+
+    .product-action {
+      position: absolute;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      display: block;
+      transform: translateY(100%);
+      button {
+        border-radius: 0;
+        width: 100%;
+        display: block;
+      }
     }
   }
 </style>
