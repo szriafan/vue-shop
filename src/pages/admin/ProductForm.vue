@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import ButtonGroup from '../../../components/ButtonGroup'
+import ButtonGroup from '../../components/ButtonGroup'
 import {mapState, mapActions} from "vuex";
 
 export default {

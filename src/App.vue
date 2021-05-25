@@ -46,7 +46,7 @@ export default {
             this.$router.push({name: 'AdminProducts'})
             break;
           case types.REMOVE_PRODUCT_SUCCESS:
-            this.$toast.warn('产品删除成功！', '消息')
+            this.$toast.success('产品删除成功！', '消息')
             break;
           case types.ADD_MANUFACTURER_SUCCESS:
             this.$toast.success('新建品牌成功！', '消息')
@@ -57,7 +57,7 @@ export default {
             this.$router.push({name: 'Manufacturers'})
             break;
           case types.REMOVE_MANUFACTURER_SUCCESS:
-            this.$toast.warn('删除品牌成功！', '消息')
+            this.$toast.success('删除品牌成功！', '消息')
             break;
           case types.ADD_CART_ITEMS:
             if (this.$route.params.id) {

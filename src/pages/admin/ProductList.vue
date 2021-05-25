@@ -41,7 +41,7 @@
 import { mapState, mapActions} from 'vuex'
 
 export default {
-  name: 'Products',
+  name: 'ProductList',
   computed: mapState(['products']),
 
   created() {

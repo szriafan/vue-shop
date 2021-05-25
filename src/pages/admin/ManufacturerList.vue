@@ -32,7 +32,7 @@
 import {mapActions, mapState} from 'vuex'
 
 export default {
-  name: 'Manufacturers',
+  name: 'ManufacturerList',
   computed: {
     ...mapState(['manufacturers']),
     count() {

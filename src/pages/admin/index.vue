@@ -18,7 +18,7 @@
 import {mapState} from 'vuex'
 
 export default {
-  name: 'Index',
+  name: 'Admin',
   computed: mapState(['manufacturers'])
 }
 </script>

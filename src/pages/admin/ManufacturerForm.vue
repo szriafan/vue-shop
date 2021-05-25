@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
-import ButtonGroup from '../../../components/ButtonGroup'
+import {mapActions} from 'vuex'
+import ButtonGroup from '../../components/ButtonGroup'
 
 export default {
   name: 'ManufacturerForm',

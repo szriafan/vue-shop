@@ -4,31 +4,31 @@ import Router from 'vue-router'
 import Home from '../pages/Home'
 import Cart from '../pages/Cart'
 import Detail from '../pages/Detail'
-import Index from '../pages/admin/Index'
-import Products from '../pages/admin/product/List'
-import ProductForm from '../pages/admin/product/Form'
-import Manufacturers from '../pages/admin/manufacturer/List'
-import ManufacturerForm from '../pages/admin/manufacturer/Form'
+import Admin from '../pages/admin'
+import ProductList from '../pages/admin/ProductList'
+import ProductForm from '../pages/admin/ProductForm'
+import ManufacturerList from '../pages/admin/ManufacturerList'
+import ManufacturerForm from '../pages/admin/ManufacturerForm'
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '*',
+      path: '/',
       name: 'Home',
       component: Home
     },
     {
       path: '/admin',
       name: 'Admin',
-      component: Index,
-      redirect: Manufacturers,
+      component: Admin,
+      redirect: '/admin/manufacturers',
       children: [
         {
           path: 'products',
           name: 'AdminProducts',
-          component: Products
+          component: ProductList
         },
         {
           path: 'products/new',
@@ -44,7 +44,7 @@ export default new Router({
         {
           path: 'manufacturers',
           name: 'Manufacturers',
-          component: Manufacturers
+          component: ManufacturerList
         },
         {
           path: 'manufacturers/new',
@@ -68,6 +68,10 @@ export default new Router({
       path: '/cart',
       name: 'Cart',
       component: Cart
+    },
+    {
+      path: '*',
+      redirect: '/',
     }
   ]
 });
