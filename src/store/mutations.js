@@ -56,17 +56,14 @@ function addToCart(state, item, many = false) {
   const product = state.cart.find(p => {
     return p._id === item._id
   })
+  const count = many ? state.count : 1
   if (!product) {
     state.cart.unshift({
       ...item,
-      quantity: state.count
+      quantity: count
     })
   } else {
-    if (many) {
-      product.quantity += state.count
-    } else {
-      product.quantity += 1
-    }
+    product.quantity += count
   }
   localStorage.setItem('CART', JSON.stringify(state.cart));
 }

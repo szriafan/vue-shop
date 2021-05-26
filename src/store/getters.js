@@ -1,34 +1,3 @@
-export const productGetters = {
-  /**
-   * locally find Product by ID
-   * @param state
-   * @param getters
-   * @returns {Function}
-   */
-  productById: (state, getters) => id => {
-    if (state.products.length > 1) {
-      return state.products.find(p => p._id === id)
-    } else {
-      return state.product
-    }
-  }
-}
-export const manufacturerGetters = {
-  /**
-   * locally find manufacturer by ID
-   * @param state
-   * @param getters
-   * @returns {Function}
-   */
-  manufacturerById: (state, getters) => id => {
-    if (state.manufacturers.length > 0) {
-      return state.manufacturers.find(p => p._id === id)
-    } else {
-      return state.manufacturer
-    }
-  }
-}
-
 export const cartGetters = {
   /**
    * get Cart Items Count

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {manufacturerGetters, productGetters, cartGetters} from "./getters";
+import {cartGetters} from "./getters";
 import {productMutations, cartMutations, manufacturerMutations, statusMutations} from "./mutations";
 import {productActions, manufacturerActions} from "./actions";
 
@@ -19,7 +19,7 @@ export default new Vuex.Store({
     count: 1
   },
 
-  getters: {...productGetters, ...manufacturerGetters, ...cartGetters},
+  getters: {...cartGetters},
   mutations: {...statusMutations, ...productMutations, ...manufacturerMutations, ...cartMutations},
   actions: {...productActions, ...manufacturerActions}
 });
